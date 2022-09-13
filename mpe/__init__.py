@@ -4,6 +4,8 @@ import mpe.scenarios as scenarios
 # ----------------------------------------
 
 _particles = {
+    "simple": "Simple-v0",
+    "simple_2p": "Simple-2p-v0",
     "multi_speaker_listener": "MultiSpeakerListener-v0",
     "simple_adversary": "SimpleAdversary-v0",
     "simple_crypto": "SimpleCrypto-v0",
