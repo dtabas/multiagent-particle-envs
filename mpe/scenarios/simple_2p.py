@@ -7,6 +7,7 @@ class Scenario(BaseScenario):
         world = World()
         # add agents
         world.agents = [Agent() for i in range(2)]
+        world.n_constraints = 1
         for i, agent in enumerate(world.agents):
             agent.name = 'agent %d' % i
             agent.collide = False
@@ -40,16 +41,9 @@ class Scenario(BaseScenario):
             landmark.state.p_vel = np.zeros(world.dim_p)
 
     def reward(self, agent, world):
-        
-        dist2 = np.sum(np.square(agent.state.p_pos - world.landmarks[0].state.p_pos))
-        
-        r = dist2
+        r = -np.sum(np.square(agent.state.p_pos - world.landmarks[0].state.p_pos))
         c = np.sum([a.state.p_pos for a in world.agents]) # Constraint penalty term
-        lam = .5
-        
-        
-        #return -dist2
-        return -r - lam*c
+        return r, c
 
     def observation(self, agent, world):
         # get positions of all entities in this agent's reference frame

@@ -74,6 +74,7 @@ class MultiAgentEnv(gym.Env):
         self.action_space = spaces.Tuple(tuple(self.action_space))
         self.observation_space = spaces.Tuple(tuple(self.observation_space))
         self.n_agents = self.n
+        self.n_constraints = world.n_constraints
 
         # rendering
         self.shared_viewer = shared_viewer

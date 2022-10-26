@@ -99,6 +99,8 @@ class World(object):
         self.contact_margin = 1e-3
 
         self.np_random = np.random.RandomState()
+        
+        self.n_constraints = 0
 
     def seed(self, seed):
         self.np_random = np.random.RandomState(seed)
